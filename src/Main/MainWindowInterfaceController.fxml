@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainWindowController">
+   <children>
+      <TabPane prefHeight="650.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="predefinedMatTab" text="Predefined Materials">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="694.0" prefWidth="400.0">
+                     <children>
+                        <ToggleButton fx:id="waterButton" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#materialToggleButton" prefHeight="25.0" prefWidth="55.0" selected="true" text="Water">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="toggleButtons" />
+                           </toggleGroup>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ToggleButton>
+                        <ToggleButton fx:id="airButton" layoutX="69.0" layoutY="21.0" mnemonicParsing="false" onAction="#materialToggleButton" prefHeight="25.0" prefWidth="55.0" text="Air" toggleGroup="$toggleButtons">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ToggleButton>
+                        <SplitPane layoutY="70.0" prefHeight="551.0" prefWidth="151.0">
+                           <items>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="592.0" prefWidth="149.0">
+                                 <children>
+                                    <Text fx:id="temperatureText" layoutX="19.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Temperature" wrappingWidth="133.916015625" />
+                                    <TextField fx:id="temperatureField" alignment="CENTER" layoutX="19.0" layoutY="77.0" maxHeight="-Infinity" onAction="#temperatureDisplay" prefHeight="30.0" prefWidth="73.0" text="20">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="98.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[°C]" wrappingWidth="36.916015625" />
+                                    <Text fx:id="pressureText" layoutX="19.0" layoutY="134.0" opacity="0.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Air Pressure" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="pressureField" alignment="CENTER" disable="true" layoutX="19.0" layoutY="142.0" maxHeight="-Infinity" onAction="#pressureDisplay" prefHeight="30.0" prefWidth="73.0" text="101325">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text fx:id="pressureUnit" layoutX="98.0" layoutY="161.0" opacity="0.5" strokeType="OUTSIDE" strokeWidth="0.0" text="[Pa]" wrappingWidth="36.916015625" />
+                                    <RadioButton fx:id="internalFlowToggle" layoutX="19.0" layoutY="187.0" mnemonicParsing="false" selected="true" text="Internal Flow">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="internalExternalFlow" />
+                                       </toggleGroup>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </RadioButton>
+                                    <RadioButton fx:id="externalFlowToggle" layoutX="19.0" layoutY="208.0" mnemonicParsing="false" text="External Flow" toggleGroup="$internalExternalFlow">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </RadioButton>
+                                    <Text layoutX="19.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Characteristic Length" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="charLengthField" alignment="CENTER" layoutX="19.0" layoutY="327.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="1">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="98.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m]" wrappingWidth="36.916015625" />
+                                    <Text layoutX="19.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target y+" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="yPlusField" alignment="CENTER" layoutX="19.0" layoutY="389.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="1">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <CheckBox fx:id="CFXSolver" layoutX="19.0" layoutY="432.0" mnemonicParsing="false" onAction="#CFXSolverCheck" text="Ansys CFX Solver" />
+                                    <Button fx:id="calculateButton" layoutX="22.0" layoutY="511.0" mnemonicParsing="false" onAction="#calculate" prefHeight="25.0" prefWidth="110.0" text="Calculate">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font></Button>
+                                    <Text layoutX="19.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data" wrappingWidth="85.916015625">
+                                       <font>
+                                          <Font name="System Italic" size="18.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow level="0.52" />
+                                       </effect>
+                                    </Text>
+                                    <Text fx:id="velocityInputText" layoutX="18.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free-stream Velocity" wrappingWidth="136.916015625" />
+                                    <TextField fx:id="velocityField" alignment="CENTER" layoutX="19.0" layoutY="266.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="1">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="98.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m/s]" wrappingWidth="36.916015625" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                        <SplitPane layoutX="150.0" layoutY="70.0" prefHeight="552.0" prefWidth="250.0">
+                           <items>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="592.0" prefWidth="248.0" style="-fx-background-color: ALICEBLUE;" SplitPane.resizableWithParent="false">
+                                 <children>
+                                    <Text layoutX="14.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dynamic Viscosity" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="dynViscosityField" alignment="CENTER" editable="false" layoutX="14.0" layoutY="77.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="120.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="142.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Pas]" wrappingWidth="36.916015625" />
+                                    <Text layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material properties" wrappingWidth="156.916015625">
+                                       <font>
+                                          <Font name="System Italic" size="18.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow level="0.52" />
+                                       </effect>
+                                    </Text>
+                                    <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kinematic Viscosity" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="kinViscosityField" alignment="CENTER" editable="false" layoutX="14.0" layoutY="142.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="120.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="142.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m2/s]" wrappingWidth="50.916015625" />
+                                    <Text layoutX="14.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Density" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="densityField" alignment="CENTER" editable="false" layoutX="14.0" layoutY="207.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="120.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="142.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[kg/m3]" wrappingWidth="50.916015625" />
+                                    <Text layoutX="14.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flow properties" wrappingWidth="156.916015625">
+                                       <font>
+                                          <Font name="System Italic" size="18.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow level="0.52" />
+                                       </effect>
+                                    </Text>
+                                    <Text layoutX="14.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reynolds Number" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="reynoldsNumField" alignment="CENTER" editable="false" layoutX="14.0" layoutY="307.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="120.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="14.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First layer Thickness" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="firstLayerThicknessField" alignment="CENTER" editable="false" layoutX="14.0" layoutY="373.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="74.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="95.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m]" wrappingWidth="26.916015625" />
+                                    <Text layoutX="14.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Boundary Layer Thickness" wrappingWidth="112.916015625" />
+                                    <TextField fx:id="BLthicknessField" alignment="CENTER" editable="false" layoutX="14.0" layoutY="449.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="74.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text layoutX="95.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m]" wrappingWidth="26.916015625" />
+                                    <ImageView fitHeight="121.0" fitWidth="95.0" layoutX="135.0" layoutY="358.0">
+                                       <image>
+                                          <Image url="@../Images/inflation.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fx:id="TurbOrLaminarBL" layoutX="14.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.916015625">
+                                       <effect>
+                                          <Glow />
+                                       </effect></Text>
+                                    <Button fx:id="advancedButton" disable="true" layoutX="141.0" layoutY="511.0" mnemonicParsing="false" onAction="#openAdvancedWindow" prefHeight="25.0" prefWidth="90.0" text="Advanced" />
+                                    <Text fx:id="FirstLayerThicknessWarning" fill="RED" layoutX="142.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Layer Thickness is larger than Estimated Boundary Layer Thickness!" visible="false" wrappingWidth="86.666015625">
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </Text>
+                                    <Button fx:id="prismLayersButton1" layoutX="14.0" layoutY="511.0" mnemonicParsing="false" onAction="#openPrismLayersWindow" prefHeight="25.0" prefWidth="90.0" text="Prism Layers" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                        <Button fx:id="helpButton" alignment="CENTER" contentDisplay="CENTER" layoutX="369.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openHelp" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 10; -fx-border-color: green; -fx-border-radius: 10;" text="?">
+                           <font>
+                              <Font name="System Bold" size="9.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="CustomMatTab" text="Custom Material">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutY="70.0" prefHeight="551.0" prefWidth="151.0" style="-fx-border-color: lightgrey;">
+                           <children>
+                              <Text layoutX="17.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data" wrappingWidth="85.916015625">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Glow level="0.52" />
+                                 </effect>
+                              </Text>
+                              <RadioButton fx:id="internalFlowToggle2" layoutX="17.0" layoutY="346.0" mnemonicParsing="false" selected="true" text="Internal Flow">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="internalExternalFlow2" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="externalFlowToggle2" layoutX="17.0" layoutY="367.0" mnemonicParsing="false" text="External Flow" toggleGroup="$internalExternalFlow2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </RadioButton>
+                              <RadioButton fx:id="dynViscosityToggle" layoutX="17.0" layoutY="61.0" mnemonicParsing="false" onAction="#dynViscosityToggleSelected" selected="true" text="Dynamic Viscosity">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="dynOrKinViscosityToggle" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="kinViscosityToggle" layoutX="17.0" layoutY="82.0" mnemonicParsing="false" onAction="#kinViscosityToggleSelected" text="Kinematic Viscosity" toggleGroup="$dynOrKinViscosityToggle">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </RadioButton>
+                              <TextField fx:id="viscosityInputField" alignment="CENTER" layoutX="17.0" layoutY="111.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="91.0" text="1.81e-05">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text fx:id="kinOrDynViscosityUnitText" layoutX="111.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Pas]" wrappingWidth="38.916015625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="17.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Density" wrappingWidth="63.916015625" />
+                              <TextField fx:id="densityFieldInput" alignment="CENTER" layoutX="17.0" layoutY="241.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="1.20">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="93.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[kg/m3]" wrappingWidth="50.916015625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="17.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free Stream Velocity" wrappingWidth="112.916015625" />
+                              <TextField fx:id="velocityField2" alignment="CENTER" layoutX="17.0" layoutY="179.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="93.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m/s]" wrappingWidth="50.916015625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="17.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Characteristic Length" wrappingWidth="123.916015625" />
+                              <TextField fx:id="charLengthField2" alignment="CENTER" layoutX="17.0" layoutY="307.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="93.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m]" wrappingWidth="50.916015625">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="17.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target y+" wrappingWidth="112.916015625" />
+                              <TextField fx:id="yPlusField2" alignment="CENTER" layoutX="17.0" layoutY="414.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="73.0" text="150">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <CheckBox fx:id="CFXSolver2" layoutX="17.0" layoutY="457.0" mnemonicParsing="false" onAction="#CFXSolverCheck" text="Ansys CFX Solver" />
+                              <Button fx:id="calculateButton2" layoutX="20.0" layoutY="512.0" mnemonicParsing="false" onAction="#calculate2" prefHeight="25.0" prefWidth="110.0" text="Calculate">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="150.0" layoutY="70.0" prefHeight="551.0" prefWidth="250.0" style="-fx-border-color: lightgrey; -fx-background-color: aliceblue;">
+                           <children>
+                              <Text layoutX="15.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flow properties" wrappingWidth="156.916015625">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                                 <effect>
+                                    <Glow level="0.52" />
+                                 </effect>
+                              </Text>
+                              <Text layoutX="15.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reynolds Number" wrappingWidth="112.916015625" />
+                              <TextField fx:id="reynoldsNumField2" alignment="CENTER" editable="false" layoutX="15.0" layoutY="308.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="15.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First layer Thickness" wrappingWidth="112.916015625" />
+                              <TextField fx:id="firstLayerThicknessField2" alignment="CENTER" editable="false" layoutX="15.0" layoutY="374.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="74.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="96.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m]" wrappingWidth="26.916015625" />
+                              <Text layoutX="15.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Boundary Layer Thickness" wrappingWidth="112.916015625" />
+                              <TextField fx:id="BLthicknessField2" alignment="CENTER" editable="false" layoutX="15.0" layoutY="450.0" maxHeight="-Infinity" prefHeight="30.0" prefWidth="74.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="96.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[m]" wrappingWidth="26.916015625" />
+                              <ImageView fitHeight="121.0" fitWidth="95.0" layoutX="136.0" layoutY="359.0">
+                                 <image>
+                                    <Image url="@../Images/inflation.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="advancedButton2" disable="true" layoutX="142.0" layoutY="512.0" mnemonicParsing="false" onAction="#openAdvancedWindow" prefHeight="25.0" prefWidth="90.0" text="Advanced" />
+                              <Text fx:id="TurbOrLaminarBL2" layoutX="15.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="140.916015625" />
+                              <Button fx:id="prismLayersButton2" layoutX="15.0" layoutY="512.0" mnemonicParsing="false" onAction="#openPrismLayersWindow" prefHeight="25.0" prefWidth="90.0" text="Prism Layers" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="helpButton2" alignment="CENTER" contentDisplay="CENTER" layoutX="369.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openHelp" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 10; -fx-border-color: green; -fx-border-radius: 10;" text="?">
+                           <font>
+                              <Font name="System Bold" size="9.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="842.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainWindowController">
+   <content>
+      <TextFlow prefHeight="3387.0" prefWidth="367.0">
+         <children>
+            <Label text="WhyPlus 2.1 Documentation">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label prefHeight="61.0" prefWidth="368.0" text="Thank you for using WhyPlus. Any comments and suggestions are very welcome and can be sent to dekoren@gmail.com" textAlignment="JUSTIFY" translateY="10.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="136.0" prefWidth="368.0" text="This little program is intended to use for CFD engineers to quickly estimate flow properties at the wall and corresponding first layer thickness based on different input parameters. The program is divided in two parts. The first part utilizes so far two of the most common predefined fluid materials, water and air. The second part can be used to simply input kinematic or dynamic viscosity of any fluid." textAlignment="JUSTIFY" translateY="5.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="42.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" translateY="220.0">
+               <image>
+                  <Image url="@../Images/kinDynViscosity.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="78.0" prefWidth="368.0" text="In the case of the water material, the material and flow properties are calculated by following relations. Dynamic viscosity of water η as a function of temperature is estimated using Vogel equation [1]:" textAlignment="JUSTIFY" translateY="-30.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="38.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" translateY="-25.0">
+               <image>
+                  <Image url="@../Images/Vogel.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="40.0" prefWidth="368.0" text="where A = -3.7188, B = 578.919, C = -137.546 and T is water temperature." textAlignment="JUSTIFY" translateY="-10.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="40.0" prefWidth="368.0" text="Relation between kinematic and dynamic viscosity is as follows:" textAlignment="JUSTIFY" translateY="-10.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="40.0" prefWidth="368.0" text="where ν is kinematic viscosity, μ is dynamic viscosity and ρ is density of medium." textAlignment="JUSTIFY" translateY="35.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="40.0" prefWidth="368.0" text="Density of water as a function of temperature is calculated using the following polynomial based on the table [2]:" textAlignment="JUSTIFY" translateY="40.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="33.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true" translateY="50.0">
+               <image>
+                  <Image url="@../Images/waterDensity.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="60.0" prefWidth="368.0" text="where n=9.998407306915692e+02, a=0.065564447400740,     b= -0.008619171545808, c=7.217694748210123e-05, d=-4.812120252252117e-07 and e=1.413875310205396e-09." translateY="60.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="41.0" prefWidth="368.0" text="Dynamic viscosity of air μ as a function of temperature is calculated using Sutherlands law for air[3]:" textAlignment="JUSTIFY" translateY="70.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="40.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" translateY="75.0">
+               <image>
+                  <Image url="@../Images/Sutherland.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="41.0" prefWidth="368.0" text="where C1=1.458e-6 [kg/ms√K], S=110.4[K], and T is temperature of air." textAlignment="JUSTIFY" translateY="80.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="23.0" prefWidth="368.0" text="Density of air is calculated using relation [4]:" textAlignment="JUSTIFY" translateY="85.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="34.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" translateY="90.0">
+               <image>
+                  <Image url="@../Images/airDensity.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="40.0" prefWidth="368.0" text="where p is pressure, R is specific gas constant for dry air that equals 287.05[J/kgK] and T is temperature of air." textAlignment="JUSTIFY" translateY="100.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="40.0" prefWidth="368.0" text="To calculate flow properties, we start with estimating Reynolds number of the flow:" textAlignment="JUSTIFY" translateY="110.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="47.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" translateY="110.0">
+               <image>
+                  <Image url="@../Images/ReynoldsNum.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="82.0" prefWidth="368.0" text="where u is free stream velocity, L is characteristic length and ν is kinematic viscosity of medium. In order to calculate wall shear stress τw we need first to estimate skin friction coefficient Cf using [5]:" textAlignment="JUSTIFY" translateY="110.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="89.0" fitWidth="207.0" pickOnBounds="true" preserveRatio="true" translateY="120.0">
+               <image>
+                  <Image url="@../Images/skinFriction.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="32.0" prefWidth="368.0" text="The wall shear stress τw is then [5]:" textAlignment="JUSTIFY" translateY="130.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="40.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" translateY="130.0">
+               <image>
+                  <Image url="@../Images/wallShearStress.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="39.0" prefWidth="368.0" text="where ρ  is density of medium and U is free stream velocity of the medium. Next step is to calculate frictional velocity Uτ [5]:" textAlignment="JUSTIFY" translateY="130.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="43.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateY="135.0">
+               <image>
+                  <Image url="@../Images/frictionalVelocity.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="24.0" prefWidth="368.0" text="And finally we can calculate first layer thickness according to [5]:" textAlignment="JUSTIFY" translateY="140.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="81.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" translateY="150.0">
+               <image>
+                  <Image url="@../Images/firstLayer.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="84.0" prefWidth="368.0" text="where f is just a factor of 1 if Ansys CFX solver is used. Factor 2 is used for at least Ansys AIM, Fluent and StarCCM+, y+ is the desired y+ value, μ is dynamic viscosity of the medium and Uτ is frictional velocity." textAlignment="JUSTIFY" translateY="155.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="85.0" prefWidth="368.0" text="Additionally, boundary layer thickness δ can also be estimated to get a rough idea of needed total inflation layer thickness. For laminar boundary layer (Re &lt; 5e10) the Blasius solution for a flat plate may be used [6]:" textAlignment="JUSTIFY" translateY="155.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" translateY="160.0">
+               <image>
+                  <Image url="@../Images/Blasius.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="122.0" prefWidth="368.0" text="where x is the flat plate length and Rex is Reynolds number based on the flat plate length. Furthermore, the x is in the application used simply as characteristic length so this approximation and the following approximation for the turbulent boundary layer in complex geometries should be used with care." textAlignment="JUSTIFY" translateY="160.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="60.0" prefWidth="368.0" text="When the boundary layer is most likely turbulent (Re &gt; 5e10) the following estimation for a flat plate with the same variables as in the previous equation may be used [6]:" textAlignment="JUSTIFY" translateY="160.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" translateY="160.0">
+               <image>
+                  <Image url="@../Images/turbulentBLthickness.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="27.0" prefWidth="368.0" text="User guide" textAlignment="JUSTIFY" translateY="470.0" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="302.0" prefWidth="368.0" text="How to use this program is hopefully self-explanatory and simple. On the left side of the window the input data shall be entered and on the right side the results are available after clicking on the “Calculate” button. Material properties of water are valid for temperatures between -0.15 and 99.85°C but if by any reason one wants to calculate values beyond that interval it is still possible to do so, however the “Water Temperature” text will become red-colored as a warning. Equations for calculating air properties are valid over a very wide range of air temperatures and pressures for engineering applications so there are no restrictions imposed here. There are neither no restrictions in entering high free-stream velocities for air but if the velocity exceeds 100m/s the “Free-stream Velocity” text will become red-colored as a warning due to possible compressibility effects affecting the results." textAlignment="JUSTIFY" translateY="470.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="117.0" prefWidth="368.0" text="Input text fields accept numerical values in either decimal point format or in scientific format. Negative number may be accepted but they are treated as positive, except for the temperature. If non-valid value is entered the program will show an error in the form of the       sign displayed in the temperature input field." textAlignment="JUSTIFY" translateY="470.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="149.0" translateY="432.0">
+               <image>
+                  <Image url="@../Images/error.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="56.0" prefWidth="368.0" text="References:" textAlignment="JUSTIFY" translateY="810.0" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="44.0" prefWidth="368.0" text="[1]http://ddbonline.ddbst.de/VogelCalculation/VogelCalculationCGI.exe" translateY="810.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="44.0" prefWidth="368.0" text="[2]https://sciencestruck.com/density-of-water-at-room-temperature" translateY="810.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="44.0" prefWidth="368.0" text="[3]https://www.cfd-online.com/Wiki/Sutherland%27s_law" translateY="800.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="44.0" prefWidth="368.0" text="[4]https://www.chemeurope.com/en/encyclopedia/Density_of_air.html" translateY="800.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="44.0" prefWidth="368.0" text="[5]https://www.computationalfluiddynamics.com.au/tips-tricks-cfd-estimate-first-cell-height/" translateY="800.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="44.0" prefWidth="368.0" text="[6]https://www.me.psu.edu/cimbala/me320web_Spring_2015/pdf/Flat_plate_turbulent_BL.pdf" translateY="800.0" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label maxWidth="368.0" prefHeight="60.0" prefWidth="368.0" text="For calculating prism layer properties the following equation is used:" textAlignment="JUSTIFY" translateY="-630.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="61.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" translateY="-635.0">
+               <image>
+                  <Image url="@../Images/prismLayerThickness.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="140.0" prefWidth="368.0" text="where t is total thickness of the prism layer, t1 is thickness of the first prism layer at the wall, r is growth ratio and n is number of layers. Normally the program solves a simple algebraic equation but in the case when the &quot;Prism Layer Option&quot; is set to “First Layer Thickness &amp; Total Thickness” the program solves polynomial equation using the Brents method. Final prism layer is calculated as:" textAlignment="JUSTIFY" translateY="-630.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="35.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" translateY="-630.0">
+               <image>
+                  <Image url="@../Images/finalLayerThickness.PNG" />
+               </image>
+            </ImageView>
+            <Label maxWidth="368.0" prefHeight="248.0" prefWidth="368.0" text="Clicking on the “Prism Layers” button opens a new window which may help to plan building the prism layers before generating a mesh with a meshing software. If material and flow properties were calculated before opening the “Prism Layers” window the “First Layer Thickness” value and “Total Thickness” value are automatically copied to according input fields. Note that the “Total Thickness Value” is multiplied with 1.3333 as it is a good practice to generate prism layers with total thickness larger than boundary layer thickness. The “Final Layer Thickness” value may be useful when planning a smooth transition from the prism layers to the core mesh. Maximum number of layers is limited to 200 and growth rate is limited to values between 1 and 2." textAlignment="JUSTIFY" translateY="-155.0" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+   </content>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</ScrollPane>
