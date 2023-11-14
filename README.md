@@ -4,3 +4,5 @@ The written code can be found in the src\Main folder. Note that the .fxml files 
 The executable .jar file can be copied to your Windows machine and if there is the latest version of the Java RE installed the little program should work.
 
 Most of the equations solved in the code are fairly simple but there is one seemenly simple operation involved where I needed to implement iterative Brents method of solving polynomal equations. It can be found in the GrowthRate.java file
+
+There is also a screenshot of the user interface with all windows open to preview the code.
